@@ -1,21 +1,18 @@
-
-import Lottie from "lottie-react";
-import txtLogo from './assets/icons/txt_vampire_express.svg';
-import animationData from './assets/animations/bat_animation.json';
-import './App.css';
+import { Routes, Route } from 'react-router-dom';
+import HomePage from './pages/home';
+import SelectPage from './pages/select';
+import NotFoundPage from './pages/notFound';
+// import NavBar from './component/NavBar';
 
 function App() {
-
   return (
     <>
-      <div id="spotlight-container">
-        <div id="spotlight"></div>
-        <div id="circle"></div>
-        <Lottie animationData={animationData} 
-          style={{ width: 180, height: 180, position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }} 
-        />
-      </div>
-      <img src={txtLogo} className="logo" alt="Vampire Express" />
+      {/* <NavBar /> */}
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/select" element={<SelectPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
     </>
   );
 }
